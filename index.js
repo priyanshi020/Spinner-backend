@@ -2,16 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require("body-parser");
-// const userRoutes = require('./routes/userRoutes');
-
-dotenv.config();
-
+const cors = require('cors'); // Import CORS
+const userRoutes = require('./routes/userRoute');
+const paymentRoutes = require('./routes/paymentRoute');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 // Middleware
+app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
@@ -22,8 +22,8 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
-// app.use('/users', userRoutes);
-
+app.use("/users", userRoutes);
+app.use("/payments", paymentRoutes);
 
 // Start the server
 app.listen(PORT, () => {
