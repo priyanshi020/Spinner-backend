@@ -19,6 +19,8 @@ exports.loginUser = async (req, res) => {
                 return res.status(403).json({
                     message: `You can only login after ${48 - timeDifference} hours.`,
                     is_active: false, // User is blocked
+                    mobile_number: user.mobile_number,
+                    name: user.name,
                 });
             }
 
@@ -29,6 +31,8 @@ exports.loginUser = async (req, res) => {
             return res.status(200).json({
                 message: "Login successful!",
                 is_active: true, // User is allowed
+                mobile_number: user.mobile_number,
+                name: user.name,
             });
         }
 
@@ -44,9 +48,12 @@ exports.loginUser = async (req, res) => {
         return res.status(201).json({
             message: "User registered and logged in!",
             is_active: true, // New user is allowed
+            mobile_number: newUser.mobile_number,
+            name: newUser.name,
         });
     } catch (error) {
         console.error("Error:", error);
         return res.status(500).json({ message: "Internal Server Error" });
     }
 };
+

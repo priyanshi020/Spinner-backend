@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors'); // Import CORS
 const userRoutes = require('./routes/userRoute');
 const paymentRoutes = require('./routes/paymentRoute');
+const payoutRoutes = require("./routes/payoutRoute");
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGODB_URI)
 // Routes
 app.use("/users", userRoutes);
 app.use("/payments", paymentRoutes);
+app.use("/payouts", payoutRoutes);
 
 // Start the server
 app.listen(PORT, () => {
