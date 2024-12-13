@@ -6,6 +6,7 @@ const cors = require('cors'); // Import CORS
 const userRoutes = require('./routes/userRoute');
 const paymentRoutes = require('./routes/paymentRoute');
 const payoutRoutes = require("./routes/payoutRoute");
+const cashfreeRoutes=require('./routes/cashfreeRoute');
 require('dotenv').config();
 
 const app = express();
@@ -26,8 +27,10 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use("/users", userRoutes);
 app.use("/payments", paymentRoutes);
 app.use("/payouts", payoutRoutes);
+app.use('/cashfree',cashfreeRoutes)
 
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
