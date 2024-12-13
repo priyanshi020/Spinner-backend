@@ -6,7 +6,7 @@ const {BASE_URL} = require('../config/cashfree')
 //     const { beneficiary_id, beneficiary_name, email, phone, vpa } = req.body;
   
 //     try {
-//       const response = await axios.post('https://sandbox.cashfree.com/payout/beneficiary', {
+//       const response = await axios.post('', {
 //         beneficiary_id, beneficiary_name, email, phone, vpa
 //       }, {
 //         headers: {
