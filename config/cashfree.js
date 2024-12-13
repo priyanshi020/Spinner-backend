@@ -1,7 +1,7 @@
 // const axios = require('axios');
 // require('dotenv').config();
 
-// const { CLIENT_ID, CLIENT_SECRET, BASE_URL } = process.env;
+const { CLIENT_ID, CLIENT_SECRET, BASE_URL } = process.env;
 
 // // Function to get auth token
 // const getAuthToken = async () => {
@@ -48,4 +48,4 @@
 //   };
   
 //   testAuthToken();
-// module.exports = { getAuthToken, BASE_URL };
+module.exports = {  BASE_URL };

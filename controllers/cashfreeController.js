@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { validateBeneficiary } = require('../models/cashfreeModel');
-
+const {BASE_URL} = require('../config/cashfree')
 // Add Beneficiary
 // const addBeneficiary = async (req, res) => {
 //     const { beneficiary_id, beneficiary_name, email, phone, vpa } = req.body;
@@ -48,7 +48,7 @@ const addBeneficiary = async (req, res) => {
     };
 
     
-    const response = await axios.post('https://sandbox.cashfree.com/payout/beneficiary', payload, {
+    const response = await axios.post(`${BASE_URL}/beneficiary`, payload, {
       headers: {
         'x-client-id': process.env.CLIENT_ID,
         'x-client-secret': process.env.CLIENT_SECRET,
@@ -119,7 +119,7 @@ const initiateTransfer = async (req, res) => {
       transfer_mode
     };
 
-    const response = await axios.post('https://sandbox.cashfree.com/payout/transfers', payload, {
+    const response = await axios.post(`${BASE_URL}/transfers`, payload, {
       headers: {
         'x-client-id': process.env.CLIENT_ID,
         'x-client-secret': process.env.CLIENT_SECRET,
