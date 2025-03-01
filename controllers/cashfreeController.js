@@ -1,28 +1,7 @@
 const axios = require('axios');
 const { validateBeneficiary } = require('../models/cashfreeModel');
 const {BASE_URL} = require('../config/cashfree')
-// Add Beneficiary
-// const addBeneficiary = async (req, res) => {
-//     const { beneficiary_id, beneficiary_name, email, phone, vpa } = req.body;
-  
-//     try {
-//       const response = await axios.post('', {
-//         beneficiary_id, beneficiary_name, email, phone, vpa
-//       }, {
-//         headers: {
-//           'x-client-id': process.env.CLIENT_ID,
-//           'x-client-secret': process.env.CLIENT_SECRET,
-//           'x-api-version': '2024-01-01',
-//           'accept':'application/json',
-//           'Content-Type':'application/json'
-//         }
-//       });
-  
-//       res.status(200).json(response.data);
-//     } catch (error) {
-//       res.status(500).json({ error: error.message });
-//     }
-//   };
+
 const addBeneficiary = async (req, res) => {
   try {
    
@@ -82,7 +61,6 @@ const addBeneficiary = async (req, res) => {
 
   
 
-// Make Payout
 const initiateTransfer = async (req, res) => {
   try {
  

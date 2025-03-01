@@ -3,7 +3,7 @@ const { addBeneficiary, initiateTransfer } = require('../controllers/cashfreeCon
 
 const router = express.Router();
 
-router.post('/add-beneficiary', addBeneficiary); // Route to add a beneficiary
-router.post('/make-payout', initiateTransfer);         // Route to make a payout
+router.post('/add-beneficiary', addBeneficiary); 
+router.post('/make-payout', initiateTransfer);        
 
 module.exports = router;
