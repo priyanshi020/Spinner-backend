@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors'); 
 const userRoutes = require('./routes/userRoute');
 const cashfreeRoutes=require('./routes/cashfreeRoute');
+const spinRoutes = require("./routes/spinRoutes");
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use("/users", userRoutes);
 app.use('/cashfree',cashfreeRoutes)
+app.use("/api", spinRoutes);
 
 // Start the server
 app.listen(PORT, () => {
